@@ -13,8 +13,7 @@ var config =
             "headers":
             [
                 {
-                    "key":"Accept",
-                    "value":"application/json"
+                    "Accept": "application/json"
                 }
             ]
         },
