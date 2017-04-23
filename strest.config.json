@@ -1,0 +1,23 @@
+[
+  {
+    "repeat": 1,
+    "collect": "all",
+    "request": {
+      "url": "https://jsonplaceholder.typicode.com/posts",
+      "method": "GET",
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ]
+    },
+    "response": {
+      "statusCode": 200,
+      "statusName": "OK",
+      "maxTime": "number",
+      "contentType": "json",
+      "jsonObjects": 100
+    }
+  }
+]
