@@ -35,7 +35,10 @@ class Runner {
     }
 
     saveResult() {
-        console.log(JSON.stringify(this.result, null, 2));
+        var prettyResult = JSON.stringify(this.result, null, 2);
+        console.log('%s\n%s', 
+            chalk.green('runner result:'),
+            chalk.cyan(prettyResult));
     }
 }
 
