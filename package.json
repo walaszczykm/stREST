@@ -1,0 +1,19 @@
+{
+  "name": "strest",
+  "version": "1.0.0",
+  "description": "Node.js cli tool for stress testing REST APIs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diesel94/stREST.git"
+  },
+  "author": "Maciej Walaszczyk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/diesel94/stREST/issues"
+  },
+  "homepage": "https://github.com/diesel94/stREST#readme"
+}
