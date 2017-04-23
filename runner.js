@@ -1,13 +1,17 @@
 var request = require('request');
 var chalk = require('chalk');
+var jsonfile = require('jsonfile');
+var comp = require('./comparer');
 
 class Runner {
     constructor(config){
         this.config = config;
         this.result = [];
+    }
 
-        console.log(chalk.yellow('runner start'));
-        this.loopOverTasks(config);
+    run(){
+        console.log(chalk.yellow('tests start'));
+        this.loopOverTasks(this.config);
     }
 
     loopOverTasks(tasks){
@@ -24,10 +28,11 @@ class Runner {
         });
     }
 
-    testResponse(responseComparer, response) {
-        this.result.push({
-            statusCode: responseComparer.statucCode == response.statucCode
-        });
+    testResponse(expectedResponse, response) {
+
+        this.result.push(
+                comp(expectedResponse, response).getResult()
+            );
 
         if(this.result.length == this.config.length){
             this.saveResult();
@@ -37,11 +42,11 @@ class Runner {
     saveResult() {
         var prettyResult = JSON.stringify(this.result, null, 2);
         console.log('%s\n%s', 
-            chalk.green('runner result:'),
+            chalk.green('tests finished with result:'),
             chalk.cyan(prettyResult));
     }
 }
 
 module.exports = (config) => {
-    new Runner(config);
+    return new Runner(config);
 }

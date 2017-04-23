@@ -16,6 +16,6 @@ jsonfile.readFile(utils.configFilePath, (err, config) => {
         console.log(chalk.red('faild to load ', utils.configFileName));
     }
     else{
-        runner(config);
+        runner(config).run();
     }
 })
