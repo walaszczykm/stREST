@@ -2,9 +2,9 @@
   "name": "strest",
   "version": "1.0.0",
   "description": "Node.js cli tool for stress testing REST APIs",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node src/app.js"
   },
   "repository": {
     "type": "git",

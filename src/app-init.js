@@ -5,24 +5,22 @@ var utils = require('./utils');
 var config =
 [
     {
+        "name": "jsonplaceholder-posts",
         "repeat": 1,
-        "collect":"all",
-        "request":{
-            "url":"https://jsonplaceholder.typicode.com/posts",
-            "method":"GET",
-            "headers":
-            [
-                {
-                    "Accept": "application/json"
-                }
-            ]
+        "collect": "all",
+        "request": {
+        "url": "https://jsonplaceholder.typicode.com/posts",
+        "method": "GET",
+        "headers":{
+                "accept": "application/json"
+            },
         },
-        "response":{
-            "statusCode": 200,
-            "statusName": "OK",
-            "maxTime":"number",
-            "contentType":"json",
-            "jsonObjects": 100
+        "response": {
+        "status": 200,
+        "statusText": "OK",
+        "headers":{
+            "content-type": "application/json; charset=utf-8"
+            }
         }
     }
 ]
