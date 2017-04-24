@@ -5,6 +5,8 @@ var path = require('path');
 module.exports = {
     configFileName: 'strest.config.json',
     configFilePath: path.join(process.cwd(), 'strest.config.json'),
+    resultFileName: 'test.results.json',
+    resultFilePath: path.join(process.cwd(), 'test.results.json'),
     greet() {
         console.log(
                 '%s\n%s',

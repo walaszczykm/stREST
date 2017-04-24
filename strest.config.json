@@ -1,5 +1,6 @@
 [
   {
+    "name": "jsonplaceholder-posts",
     "repeat": 1,
     "collect": "all",
     "request": {
@@ -7,19 +8,37 @@
       "method": "GET",
       "headers": [
         {
-          "Accept": "application/json"
+          "accept": "application/json"
         }
       ]
     },
     "response": {
-      "statusCode": 200,
-      "statusName": "OK",
-      "maxTime": "number",
-      "headers": [
-        {
+      "status": 200,
+      "statusText": "OK",
+      "headers":{
           "content-type": "application/json; charset=utf-8"
         }
+    }
+  },
+  {
+    "name": "jsonplaceholder-posts2",
+    "repeat": 2,
+    "collect": "all",
+    "request": {
+      "url": "https://jsonplaceholder.typicode.com/posts",
+      "method": "GET",
+      "headers": [
+        {
+          "accept": "application/json"
+        }
       ]
+    },
+    "response": {
+      "status": 200,
+      "statusText": "OK",
+      "headers":{
+          "content-type": "application/json; charset=utf-8"
+        }
     }
   }
 ]

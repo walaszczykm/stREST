@@ -2,7 +2,7 @@ var fs = require('fs');
 var jsonfile = require('jsonfile');
 var utils = require('./utils');
 var chalk = require('chalk');
-var runner = require('./runner');
+var taskRunner = require('./task-runner');
 
 fs.exists(utils.configFilePath, (exists) => {
     if(!exists){
@@ -16,6 +16,6 @@ jsonfile.readFile(utils.configFilePath, (err, config) => {
         console.log(chalk.red('faild to load ', utils.configFileName));
     }
     else{
-        runner(config).run();
+        taskRunner.run(config);
     }
 })
