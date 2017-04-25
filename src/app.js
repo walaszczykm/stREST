@@ -6,7 +6,7 @@ clear();
 utils.greet();
 
 program.version('1.0.0')
-.command('run', 'start tests specified in strest.config.json file', {isDefault: true})
+.command('run', 'start tests specified in strest.config.json file')
 .command('init', 'initialize config file');
 
 program.parse(process.argv);
