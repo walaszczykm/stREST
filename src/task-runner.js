@@ -1,12 +1,13 @@
 const axios = require('axios');
 const chalk = require('chalk');
+const sleep = require('system-sleep');
 const respComp = require('./response-comparer');
 const jsonfile = require('jsonfile');
 const utils = require('./utils');
 
 module.exports = {
     run(tasks){
-        console.log(chalk.yellow('tests run'));
+        console.log(chalk.green('tests run'));
 
         var allResults = [];
         tasks.forEach((task) => {
@@ -25,34 +26,40 @@ module.exports = {
     testRepeatLoop(task, callback){
         var subResult = [];
         for (var index = 1; index <= task.repeat; index++) {
-            var startTime = process.hrtime();
+            console.log(chalk.yellow(`task: ${task.name}, test number: ${index}`));
             this.test(task, (result) => {
-                subResult.push({
-                    time: process.hrtime(startTime)[1]/1000000, //[1] is nanosec so /1000000 is milisec
-                    values: result
-                });
+                subResult.push(result);
                 if(subResult.length == task.repeat){
                     callback(subResult);
                 }
             });
+            sleep(task.delay);
         }
     },
 
-    test(task, callback) {
+    test(task, callback){
+        var result = {
+            time: 0,
+            values: {},
+        }
+        var startTime = process.hrtime();
+        // @ts-ignore
         axios(task.request)
         .then((response) => {
-            callback(respComp.getResult(task.response, response));
+            result.values = respComp.getResult(task.response, response)
         })
         .catch(err => {
-            callback(respComp.getResult(task.response, err.response));
+            result.values = respComp.getResult(task.response, err.response)
+        })
+        .then(() => {
+            result.time = process.hrtime(startTime)[1]/1000000; //[1] is nanosec so /1000000 is milisec
+            callback(result);
         });
     },
 
     saveResult(results) {
         var prettyResults = JSON.stringify(results, null, 2);
-        console.log('%s\n%s', 
-            chalk.green('tests finished with result:'),
-            chalk.cyan(prettyResults));
+        console.log(chalk.cyan(prettyResults));
 
         jsonfile.writeFile(utils.resultFilePath, results, {spaces: 2}, err => {
             if(err){

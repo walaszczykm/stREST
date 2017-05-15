@@ -1,0 +1,62 @@
+[
+  {
+    "name": "jsonplaceholder-posts",
+    "results": [
+      {
+        "time": 196.322843,
+        "values": {
+          "status": true,
+          "statusText": true,
+          "headers": {
+            "content-type": true
+          }
+        }
+      },
+      {
+        "time": 182.078894,
+        "values": {
+          "status": true,
+          "statusText": true,
+          "headers": {
+            "content-type": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": "second",
+    "results": [
+      {
+        "time": 145.666994,
+        "values": {
+          "status": true,
+          "statusText": true,
+          "headers": {
+            "content-type": true
+          }
+        }
+      },
+      {
+        "time": 157.584379,
+        "values": {
+          "status": true,
+          "statusText": true,
+          "headers": {
+            "content-type": true
+          }
+        }
+      },
+      {
+        "time": 141.112244,
+        "values": {
+          "status": true,
+          "statusText": true,
+          "headers": {
+            "content-type": true
+          }
+        }
+      }
+    ]
+  }
+]

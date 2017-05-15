@@ -1,0 +1,42 @@
+[
+  {
+    "name": "jsonplaceholder-posts",
+    "repeat": 2,
+    "delay": 3000,
+    "collect": "all",
+    "request": {
+      "url": "https://jsonplaceholder.typicode.com/posts",
+      "method": "GET",
+      "headers": {
+        "accept": "application/json"
+      }
+    },
+    "response": {
+      "status": 200,
+      "statusText": "OK",
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      }
+    }
+  },
+  {
+    "name": "second",
+    "repeat": 3,
+    "delay": 1000,
+    "collect": "all",
+    "request": {
+      "url": "https://jsonplaceholder.typicode.com/posts",
+      "method": "GET",
+      "headers": {
+        "accept": "application/json"
+      }
+    },
+    "response": {
+      "status": 200,
+      "statusText": "OK",
+      "headers": {
+        "content-type": "application/json; charset=utf-8"
+      }
+    }
+  }
+]
